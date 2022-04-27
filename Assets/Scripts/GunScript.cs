@@ -16,9 +16,12 @@ public class GunScript : MonoBehaviour
     public Transform firePoint;
     [SerializeField]
     ParticleSystem particleSystem;
+    public Transform bulletDirection;
+    public AudioClip audio;
+    AudioSource audioSource;
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();  
     }
 
     // Update is called once per frame
@@ -29,6 +32,7 @@ public class GunScript : MonoBehaviour
         {
             if(Input.GetButton("Fire1"))
             {
+                audioSource.Play();
                 timer = 0f;
                 ToFireGun();
             }
